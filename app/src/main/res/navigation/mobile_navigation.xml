@@ -20,4 +20,9 @@
         android:name="com.example.authboy.ui.discover.DiscoverFragment"
         android:label="@string/menu_discover"
         tools:layout="@layout/fragment_discover" />
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.example.authboy.ui.favorite.FavorisFragment"
+        android:label="@string/menu_favorite"
+        tools:layout="@layout/fragment_favoris" />
 </navigation>
