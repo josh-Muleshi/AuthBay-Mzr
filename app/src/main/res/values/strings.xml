@@ -20,4 +20,6 @@
     <string name="menu_discover">Decouvir</string>
     <string name="menu_favorite">Favoris</string>
     <string name="menu_share">Partager</string>
+    <string name="menu_about_us">Apropos</string>
+    <string name="menu_setting">Parametres</string>
 </resources>
