@@ -23,4 +23,7 @@
     <string name="menu_about_us">A propos de</string>
     <string name="menu_setting">Parametres</string>
     <string name="text_share_desc">envoyer lien</string>
+    <string name="version_app">Version 1.0.0.Alphat01</string>
+    <string name="developper">Développé par Josh_Muleshi</string>
+    <string name="authboy_mzr_name_app">Authboy Mzr</string>
 </resources>
