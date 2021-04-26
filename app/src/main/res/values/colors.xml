@@ -3,4 +3,5 @@
     <color name="colorPrimary">#BF0C0C0C</color>
     <color name="colorPrimaryDark">#F5090909</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="recylerviewBack">#EBECEC</color>
 </resources>

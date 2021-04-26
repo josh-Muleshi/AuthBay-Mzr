@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/nav_aboutUs"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/menu_about_us"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_share"
+        android:id="@+id/nav_share"
         android:orderInCategory="100"
         android:title="@string/text_share"
         android:icon="@drawable/ic_baseline_share_24"
