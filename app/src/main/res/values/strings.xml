@@ -26,4 +26,8 @@
     <string name="version_app">Version 1.0.0.Alphat01</string>
     <string name="developper">Développé par Josh_Muleshi</string>
     <string name="authboy_mzr_name_app">Authboy Mzr</string>
+    <string name="view_licence_txt">View licence</string>
+    <string name="twetter_icon_desc">twetter icon</string>
+    <string name="linkdin_icon_desc">linkdin icon</string>
+    <string name="whatsapp_icon_desc">whatsapp icon</string>
 </resources>
