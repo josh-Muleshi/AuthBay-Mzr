@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_share -> shareSuccess()
-            R.id.nav_aboutUs -> aboutLauncher(item)
+            R.id.nav_aboutUs,R.id.nav_settings -> aboutLauncher(item)
         }
         return super.onOptionsItemSelected(item)
     }

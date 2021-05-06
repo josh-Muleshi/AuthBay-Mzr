@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/nav_aboutUs"
         android:name="com.example.authboy.ui.About.AboutFragment"
-        android:label="fragment_about"
+        android:label="@string/menu_about_us"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/nav_discover"
@@ -25,4 +25,9 @@
         android:name="com.example.authboy.ui.favorite.FavorisFragment"
         android:label="@string/menu_favorite"
         tools:layout="@layout/fragment_favoris" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.authboy.ui.setting.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

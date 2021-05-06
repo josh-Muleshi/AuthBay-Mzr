@@ -6,4 +6,6 @@
     <color name="recylerviewBack">#EBECEC</color>
     <color name="black">#000000</color>
     <color name="color_view_licence">#4CAF50</color>
+    <color name="color_back_view_licence">#D3000000</color>
+    <color name="top_drawer">#9A000000</color>
 </resources>

@@ -18,10 +18,10 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_authboy" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txt_authboy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -46,7 +46,7 @@
             app:layout_constraintVertical_bias="0.122" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/developer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -56,17 +56,6 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_about" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/view_licence_txt"
-            android:textColor="@color/color_view_licence"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -84,12 +73,12 @@
             android:id="@+id/imageView3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            android:contentDescription="@string/linkdin_icon_desc"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:srcCompat="@drawable/ic_linkedin"
-            android:contentDescription="@string/linkdin_icon_desc" />
+            app:layout_constraintTop_toBottomOf="@+id/developer"
+            app:srcCompat="@drawable/ic_linkedin" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -102,5 +91,23 @@
             app:srcCompat="@drawable/ic_whatsapp"
             android:contentDescription="@string/whatsapp_icon_desc" />
 
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_back_view_licence"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/view_licence_txt"
+                android:textColor="@color/color_view_licence" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
