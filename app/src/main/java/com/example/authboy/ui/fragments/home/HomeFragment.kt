@@ -1,9 +1,11 @@
 package com.example.authboy.ui.fragments.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
+import android.os.Message
 import android.view.*
 import android.widget.SeekBar
 import android.widget.Toast
@@ -24,8 +26,7 @@ import kotlinx.android.synthetic.main.song_bottom_bar.*
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    lateinit var runnable: Runnable
-    lateinit var handles: Handler
+    private var totalTime: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,6 +53,9 @@ class HomeFragment : Fragment() {
             Song("came over"),
             Song("came over"),
             Song("came over"),
+            Song("came over"),
+            Song("came over"),
+            Song("came over"),
             Song("came over")
         )
 
@@ -72,6 +76,7 @@ class HomeFragment : Fragment() {
                 //now wanna add the seekBar's functionality
                 seekbar.progress = 0
                 seekbar.max = mediaPlayer.duration
+                totalTime = mediaPlayer.duration
                 //play button event
                 playMusic(mediaPlayer)
 
@@ -89,40 +94,81 @@ class HomeFragment : Fragment() {
 
                 })
 
-                runnable = Runnable {
-                    seekbar.progress = mediaPlayer.currentPosition
-                    handles.postDelayed(runnable, 1000)
-                }
+                Thread(Runnable {
+                    while (mediaPlayer != null){
+                        try {
+                            var msg = Message()
+                            msg.what = mediaPlayer.currentPosition
+                            handler.sendMessage(msg)
+                            Thread.sleep(1000)
+                        }catch (e : InterruptedException){
+                        }
+                    }
+                }).start()
+
+
 
                 mediaPlayer.setOnCompletionListener {
-//                    if (position != chate.size) {
-//                        val p = position + 1
-//                        onItemClick(p)
-//                    } else {
-                    play_btn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-                    seekbar.progress = 0
-//                    }
+                    if (position != chate.size) {
+                        mediaPlayer.stop()
+                        val p = position + 1
+                        onItemClick(p)
+                    } else {
+                        play_btn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+                        seekbar.progress = 0
+                        mediaPlayer.stop()
+                    }
                 }
             }
 
             fun playMusic(mediaPlayer: MediaPlayer) {
+                mediaPlayer.start()
+                play_btn.setImageResource(R.drawable.ic_baseline_pause_24)
+
                 play_btn.setOnClickListener {
                     // check that the mediaPlayer is not playing
-                    if (!mediaPlayer.isPlaying) {
+                    if (mediaPlayer.isPlaying) {
+                        mediaPlayer.pause()
+                        play_btn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+                    } else {
                         mediaPlayer.start()
                         //change the button's image
                         play_btn.setImageResource(R.drawable.ic_baseline_pause_24)
-                    } else {
-                        mediaPlayer.pause()
-                        play_btn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
                     }
 
                 }
             }
         })
-
     }
 
+    @SuppressLint("HandlerLeak")
+    var handler = object : Handler(){
+        override fun handleMessage(msg: Message) {
+            var currentPosition = msg.what
+
+            //update seekBar
+            seekbar.progress = currentPosition
+
+            //update labels
+            var elapsedTime = createTimeLabel(currentPosition)
+            elapsedTimeLabel.text = elapsedTime
+
+            var remainingTime = createTimeLabel(totalTime - currentPosition)
+            remainingTimeLabel.text = "-$remainingTime"
+        }
+    }
+
+    fun createTimeLabel(time : Int): String{
+        var timeLabel = ""
+        var min = time / 1000 / 60
+        var sec = time / 1000 % 60
+
+        timeLabel = "$min:"
+        if (sec < 10) timeLabel += "0"
+        timeLabel += sec
+
+        return timeLabel
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

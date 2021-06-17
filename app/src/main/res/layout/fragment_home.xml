@@ -8,25 +8,32 @@
         android:layout_height="match_parent"
         tools:context=".ui.fragments.home.HomeFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <RelativeLayout
+            android:id="@+id/l_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:listitem="@layout/cardview_item" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <include
-            android:id="@+id/include2"
-            layout="@layout/song_bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="630dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="101dp"
+                tools:ignore="MissingConstraints"
+                tools:listitem="@layout/cardview_item" />
+
+            <include
+                android:id="@+id/include2"
+                layout="@layout/song_bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:elevation="8dp" />
+
+        </RelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
