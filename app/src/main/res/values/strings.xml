@@ -30,4 +30,11 @@
     <string name="twetter_icon_desc">twetter icon</string>
     <string name="linkdin_icon_desc">linkdin icon</string>
     <string name="whatsapp_icon_desc">whatsapp icon</string>
+    <string name="elapsedTimeLabel_txt">0:00</string>
+    <string name="remainingTimeLabel_txt">-0:00</string>
+    <string name="repeat_btn">repeat btn</string>
+    <string name="skip_next_btn">skip next btn</string>
+    <string name="play_btn">play btn</string>
+    <string name="previous_btn">previous btn</string>
+    <string name="like_btn">like btn</string>
 </resources>
