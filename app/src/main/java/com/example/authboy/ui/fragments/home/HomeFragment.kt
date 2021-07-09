@@ -68,6 +68,11 @@ class HomeFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
 
+        /*
+        *the recyclerView item click
+        * when one of the recycler view will be clicked the actions that will follow
+        * are define in this setOnItemClickListener lambda
+         */
         adapter.setOnItemClickListener(object : SongsAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
                 Toast.makeText(activity, "item $position clicked", Toast.LENGTH_SHORT).show()
@@ -106,7 +111,10 @@ class HomeFragment : Fragment() {
                     }
                 }).start()
 
-
+                /*
+                * When the media player is complited le next action that will follow
+                * will be old by this one [setOnCompletionListener]
+                 */
 
                 mediaPlayer.setOnCompletionListener {
                     if (position != chate.size) {
@@ -121,9 +129,15 @@ class HomeFragment : Fragment() {
                 }
             }
 
+            /*
+            * function that are playing the song
+             */
+
             fun playMusic(mediaPlayer: MediaPlayer) {
                 mediaPlayer.start()
                 play_btn.setImageResource(R.drawable.ic_baseline_pause_24)
+
+                // on play button click the action that will be done
 
                 play_btn.setOnClickListener {
                     // check that the mediaPlayer is not playing
